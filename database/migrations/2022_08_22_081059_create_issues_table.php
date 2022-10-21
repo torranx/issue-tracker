@@ -17,10 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('title')->trim();
             $table->string('description');
-            $table->foreignId('user_id')->constrained(); // created by/reporter
-            $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->string('assigned_to');
             $table->enum('status', ['to do', 'in progress', 'for review', 'for testing', 'done'])->default('to do');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('author_user_id');
+            $table->foreign('author_user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('assigned_user_id');
+            $table->foreign('assigned_user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
