@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+    public function issue() {
+        $this->hasMany(Issue::class);
+    }
+
+    public function user() {
+        $this->belongsToMany(User::class);
+    }
 }
