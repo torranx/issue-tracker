@@ -32,7 +32,11 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function project() {
+    public function projects() {
         $this->hasMany(Project::class);
+    }
+
+    public function issues() {
+        $this->hasMany(Issue::class);
     }
 }

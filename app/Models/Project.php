@@ -9,11 +9,11 @@ class Project extends Model
 {
     use HasFactory;
 
-    public function issue() {
+    public function issues() {
         $this->hasMany(Issue::class);
     }
 
-    public function user() {
+    public function users() {
         $this->belongsToMany(User::class);
     }
 }
