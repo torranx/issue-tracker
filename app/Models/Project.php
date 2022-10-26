@@ -10,10 +10,10 @@ class Project extends Model
     use HasFactory;
 
     public function issues() {
-        $this->hasMany(Issue::class);
+        return $this->hasMany(Issue::class);
     }
 
     public function users() {
-        $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 }

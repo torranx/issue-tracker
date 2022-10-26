@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,8 +21,10 @@ class IssueFactory extends Factory
         return [
             'title' => fake()->words(3, true),
             'description' => fake()->paragraph(2),
-            'author_user_id' => fake()->randomDigitNotNull(),
-            'status '=> 'to do'
+            'author_user_id' => User::factory(),
+            'assigned_user_id' => User::factory(),
+            'project_id' => Project::factory(),
+            'status' => 'to do'
         ];
     }
 }

@@ -33,10 +33,10 @@ class User extends Authenticatable
     ];
 
     public function projects() {
-        $this->hasMany(Project::class);
+        return $this->hasMany(Project::class);
     }
 
     public function issues() {
-        $this->hasMany(Issue::class);
+        return $this->hasMany(Issue::class);
     }
 }

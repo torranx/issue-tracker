@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->word(1, true)
+            'name' => fake()->word(1, true)
         ];
     }
 }
