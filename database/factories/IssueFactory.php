@@ -21,9 +21,9 @@ class IssueFactory extends Factory
         return [
             'title' => fake()->words(3, true),
             'description' => fake()->paragraph(2),
-            'author_user_id' => User::factory(),
-            'assigned_user_id' => User::factory(),
-            'project_id' => Project::factory(),
+            'author_user_id' => User::all()->random()->id,
+            'assigned_user_id' => User::all()->random()->id,
+            'project_id' => Project::all()->random()->id,
             'status' => 'to do'
         ];
     }

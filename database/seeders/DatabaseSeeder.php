@@ -17,10 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $projects = Project::factory(5)->create();
+        $projects = Project::factory()->count(10)->create();
 
-        $users = User::factory(5)->hasProjects(2)->create();
+        $users = User::factory()->count(10)->create();
 
-        Issue::factory(5)->create();
+        foreach ($projects as $project) {
+            $project->users()->attach(mt_rand(1, $project->max('id')));
+        }
+
+        $issues = Issue::factory()->count(10)->create();
     }
 }
