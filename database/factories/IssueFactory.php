@@ -19,7 +19,7 @@ class IssueFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->words(3, true),
+            'title' => fake()->words(mt_rand(3, 5), true),
             'description' => fake()->paragraph(2),
             'author_user_id' => User::all()->random()->id,
             'assigned_user_id' => User::all()->random()->id,

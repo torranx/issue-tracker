@@ -18,7 +18,7 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->word(1, true)
+            'name' => fake()->words(mt_rand(2, 3), true)
         ];
     }
 }
