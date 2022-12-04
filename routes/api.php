@@ -15,8 +15,11 @@ use App\Http\Controllers\IssueController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->group(function() {
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+    
+    Route::apiResource('issues', IssueController::class);
+    
 });
-
-Route::apiResource('issues', IssueController::class);
