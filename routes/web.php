@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\User;
+use App\Models\Project;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +22,16 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function() {
-        return view('dashboard');
+        $user = User::find(7);
+
+        foreach ($user->projects as $project) {
+            dd($project->pivot->project_id);
+        }
+        
+        return view(
+            'dashboard',
+            [ 'projects' => Project::where('id', '=', $user->id)->get() ]
+        );
     })->name('dashboard');
 });
 
