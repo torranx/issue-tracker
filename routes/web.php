@@ -22,11 +22,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function() {
-        $user = User::find(7);
+        $user = User::find(3);
 
-        foreach ($user->projects as $project) {
-            dd($project->pivot->project_id);
-        }
+        dd($user->projects);
         
         return view(
             'dashboard',
