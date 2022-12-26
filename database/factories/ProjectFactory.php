@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,10 @@ class ProjectFactory extends Factory
      */
     public function definition()
     {
+        $name = fake()->words(mt_rand(2, 3), true);
         return [
-            'name' => fake()->words(mt_rand(2, 3), true)
+            'name' => $name,
+            'slug' => Str::slug($name, '-')
         ];
     }
 }
