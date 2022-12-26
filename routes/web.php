@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +22,20 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function() {
+    Route::get('dashboard', function() {
         $user = User::find(3);
 
-        dd($user->projects);
-        
         return view(
             'dashboard',
-            [ 'projects' => Project::where('id', '=', $user->id)->get() ]
+            [ 'projects' => $user->projects ]
         );
     })->name('dashboard');
+
+    Route::get('projects/{project:slug}', [ProjectController::class, 'show']);
+
+    Route::resource('projects', ProjectController::class)->except([
+        'index', 'create', 'show'
+    ]);
 });
 
 require __DIR__.'/auth.php';
