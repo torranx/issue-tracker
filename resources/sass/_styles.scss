@@ -1,0 +1,13 @@
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    @include media_breakpoint_down(lg) {
+        position: relative;
+        ul {
+            border: none;
+            li form {
+                padding: 0;
+            }
+        }
+    }
+}

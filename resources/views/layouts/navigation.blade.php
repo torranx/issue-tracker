@@ -3,14 +3,14 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse position-relative" id="navbarNavAltMarkup">
+            <ul class="navbar-nav w-100">
                 <li class="nav-item">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-decoration-none nav-link">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </li>
-                <li class="nav-item dropdown" href="#">
+                <li class="nav-item dropdown user-dropdown" href="#">
                     <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>

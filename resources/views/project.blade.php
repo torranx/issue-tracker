@@ -10,7 +10,7 @@
     </x-slot>
     
     <h3 class="mb-4">{{ $project->name }}</h3>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between flex-wrap">
         @foreach ($statuses as $status)
             <x-issues :issues="$issues[$status]" status="{{ str_replace('_', ' ', $status) }}"></x-issues>
         @endforeach
