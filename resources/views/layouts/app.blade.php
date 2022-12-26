@@ -14,13 +14,13 @@
         <script src="https://kit.fontawesome.com/35df3df55a.js" crossorigin="anonymous"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased m-0 p-0">
+    <body class="font-sans antialiased m-0 p-0 bg-light">
         <div>
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
+                <header class="bg-white shadow-sm mb-3">
                     <div class="px-3">
                         {{ $header }}
                     </div>
@@ -28,7 +28,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="w-100 px-5">
                 {{ $slot }}
             </main>
         </div>
