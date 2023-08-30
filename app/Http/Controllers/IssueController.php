@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class IssueController extends Controller
@@ -31,12 +32,19 @@ class IssueController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  \App\Models\Project  $project
      * @param  \App\Models\Issue  $issue
      * @return \Illuminate\Http\Response
      */
-    public function show(Issue $issue)
+    public function show(Project $project, Issue $issue)
     {
-        //
+        return view(
+            'issue', 
+            [
+                'project' => $project,
+                'issue' => $issue
+            ]
+        );
     }
 
     /**

@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IssueController;
 use App\Http\Controllers\ProjectController;
 
 /*
@@ -36,6 +37,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('projects', ProjectController::class)->except([
         'index', 'create', 'show'
     ]);
+
+    Route::get('projects/{project:slug}/{issue:slug}', [IssueController::class, 'show']);
 });
 
 require __DIR__.'/auth.php';

@@ -1,5 +1,5 @@
-<nav x-data="{ open: false }" class="navbar navbar-expand-lg bg-white border-bottom px-3">
-    <div class="w-100">
+<nav x-data="{ open: false }" class="navbar navbar-expand-lg bg-white border-bottom">
+    <div class="w-100 container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

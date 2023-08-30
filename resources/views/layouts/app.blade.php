@@ -21,14 +21,14 @@
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow-sm mb-3">
-                    <div class="px-3">
+                    <div class="container-lg">
                         {{ $header }}
                     </div>
                 </header>
             @endif
 
             <!-- Page Content -->
-            <main class="w-100 px-5">
+            <main class="container-lg">
                 {{ $slot }}
             </main>
         </div>
